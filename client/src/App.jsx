@@ -14,7 +14,7 @@ function App() {
      <div>
       <Toaster position="top-center" reverseOrder={false} />
       <BrowserRouter>
-        <Routes>
+        <Routes> 
           <Route path="/" element={<Welcome />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
