@@ -1,8 +1,27 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-require('dotenv').config();
-const dbConfig = require('./config/dbConfig');
-const PORT = process.env.PORT || 5000;
+
+require("dotenv").config();
+
+require("./config/dbConfig");
+
+const PORT = process.env.PORT || 4000;
+
+
+
+app.use((req, res, next) => {
+  console.log(`Incoming ${req.method} request on ${req.url}`);
+  next();
+});
+
+
+app.use(express.json());
+
+
+const userRoute = require("./routes/userRoute");
+app.use("/api/users", userRoute);
+
+
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});  
+  console.log(`Server is running on port ${PORT}`);
+});
