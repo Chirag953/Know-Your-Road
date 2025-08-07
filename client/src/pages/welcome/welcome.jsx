@@ -1,6 +1,8 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
+
 import logo from '../../assets/logo.png';
+
 
 function Welcome() {
   const navigate = useNavigate();
@@ -17,6 +19,7 @@ function Welcome() {
       <div className="bg-white h-[400px] flex justify-center items-center">
         <div className="w-full max-w-md mx-auto">
           <img 
+
             src={logo}
             alt="Know Your Road Logo"
             className="object-contain w-full" 
