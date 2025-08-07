@@ -5,6 +5,7 @@ import Register from './pages/register/Register';
 import Login from './pages/login/Login';
 import User from './pages/home/User/User';
 import Admin from './pages/home/admin/Admin';
+import Welcome from './pages/welcome/welcome';
 import { Toaster } from 'react-hot-toast';
 function App() {
   
@@ -14,10 +15,12 @@ function App() {
       <Toaster position="top-center" reverseOrder={false} />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<User />} />
+          <Route path="/" element={<Welcome />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/Admin-dashboard" element={<Admin />} />
+          <Route path="/welcome" element={<Welcome />} />
+          <Route path="/user" element={<User />} />
         </Routes>
       </BrowserRouter>
       

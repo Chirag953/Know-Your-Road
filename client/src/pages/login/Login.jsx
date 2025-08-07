@@ -20,7 +20,7 @@ function Login() {
           if (response.data.role === "admin") {
             navigate("/Admin-dashboard");
           } else {
-            navigate("/");
+            navigate("/user");
           }
         }, 500); // 500ms delay
       } else {
