@@ -25,3 +25,15 @@ export const LoginUser = async (payload) => {
     }
     
 }
+//get user details
+export const GetUser = async () => {
+    try{
+        const response = await axiosInstance.get('/api/users/getuser');
+        return response.data;
+    }
+    catch(error){
+        throw error || error.response.data|| "Something went wrong";
+        
+    }
+    
+};

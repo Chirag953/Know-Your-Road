@@ -7,20 +7,24 @@ import User from './pages/home/User/User';
 import Admin from './pages/home/admin/Admin';
 import Welcome from './pages/welcome/welcome';
 import { Toaster } from 'react-hot-toast';
+import ProtectedRoute from './Components/ProtectedRoute';
+import { useSelector } from 'react-redux';
+import Loader from './Components/Loader';
 function App() {
-  
+   const { loading } = useSelector((state) => state.loadersReducer);
 
   return (
      <div>
       <Toaster position="top-center" reverseOrder={false} />
+      {loading && <Loader />}
       <BrowserRouter>
         <Routes> 
           <Route path="/" element={<Welcome />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/Admin-dashboard" element={<Admin />} />
+          <Route path="/Admin-dashboard" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
           <Route path="/welcome" element={<Welcome />} />
-          <Route path="/user" element={<User />} />
+          <Route path="/user" element={<ProtectedRoute><User /></ProtectedRoute>} />
         </Routes>
       </BrowserRouter>
       

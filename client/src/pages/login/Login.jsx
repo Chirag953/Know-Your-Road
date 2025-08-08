@@ -3,30 +3,35 @@ import { Link } from "react-router-dom";
 import Button from "../../Components/Button";
 import { toast } from "react-hot-toast";
 import { LoginUser } from "../../apicalls/users";
-import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { hideLoader, showLoader } from "../../redux/loadersSlice";
+
 function Login() {
   const [user, setUser] = React.useState({
     email: "",
     password: "",
   });
-  const navigate = useNavigate();
+ const dispatch = useDispatch();
   const login = async () => {
     try {
+      dispatch(showLoader())
       const response = await LoginUser(user);
       if (response.success) {
         localStorage.setItem("token", response.data.token);
         toast.success(response.message);
         setTimeout(() => {
           if (response.data.role === "admin") {
-            navigate("/Admin-dashboard");
+            window.location.href = "/Admin-dashboard";
           } else {
-            navigate("/user");
+            window.location.href = "/user";
           }
         }, 500); // 500ms delay
       } else {
         toast.error(response.message);
       }
+      dispatch(hideLoader());
     } catch (error) {
+      dispatch(hideLoader());
       toast.error(
         error.response?.data?.message || error.message || "Something went wrong"
       );
