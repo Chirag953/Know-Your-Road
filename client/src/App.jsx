@@ -10,6 +10,7 @@ import { Toaster } from 'react-hot-toast';
 import ProtectedRoute from './Components/ProtectedRoute';
 import { useSelector } from 'react-redux';
 import Loader from './Components/Loader';
+import AdminProtectedRoute from './Components/AdminProtectedRoute';
 function App() {
    const { loading } = useSelector((state) => state.loadersReducer);
 
@@ -22,7 +23,7 @@ function App() {
           <Route path="/" element={<Welcome />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/Admin-dashboard" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
+          <Route path="/Admin-dashboard" element={<AdminProtectedRoute><Admin /></AdminProtectedRoute>} />
           <Route path="/welcome" element={<Welcome />} />
           <Route path="/user" element={<ProtectedRoute><User /></ProtectedRoute>} />
         </Routes>

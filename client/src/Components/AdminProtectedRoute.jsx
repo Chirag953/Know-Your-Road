@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import { GetUser } from "../apicalls/users";
 import { SetCurrentUser } from "../redux/usersSlice";
 
-function UserProtectedRoute({ children }) {
+function AdminProtectedRoute({ children }) {
   const { currentUser } = useSelector((state) => state.usersReducer);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -33,19 +33,15 @@ function UserProtectedRoute({ children }) {
     }
   }, []);
 
-  // Block if user is admin
-  if (currentUser && currentUser.role === "admin") {
+  // Allow only admins
+  if (currentUser && currentUser.role !== "admin") {
+    toast.error("You are not authorized to access this page.");
     // navigate("/unauthorized");
     navigate("/login");
-    toast.error("You are not authorized to access this page.");
     return null;
   }
 
-  return currentUser ? <>
-  {children}
-  {currentUser.name}
-  
-  </> : null;
+  return currentUser ? <>{children}</> : null;
 }
 
-export default UserProtectedRoute;
+export default AdminProtectedRoute;
