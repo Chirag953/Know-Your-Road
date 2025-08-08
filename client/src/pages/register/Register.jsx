@@ -4,7 +4,10 @@ import Button from "../../Components/Button";
 import { RegisterUser } from "../../apicalls/users";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import { useDispatch } from "react-redux";
+import { hideLoader, showLoader } from "../../redux/loadersSlice";
 function Register() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [user, setUser] = React.useState({
     name: "",
@@ -14,6 +17,7 @@ function Register() {
   });
   const register = async () => {
     try {
+      dispatch(showLoader());
       const response = await RegisterUser(user);
       if (response.success) {
         toast.success(response.message);
@@ -21,7 +25,9 @@ function Register() {
       } else {
         toast.error(response.message);
       }
+      dispatch(hideLoader());
     } catch (error) {
+      dispatch(hideLoader());
       toast.error(error.message);
     }
   };
