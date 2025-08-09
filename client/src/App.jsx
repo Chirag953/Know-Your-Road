@@ -1,17 +1,41 @@
 import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css'
-
+import Register from './pages/register/Register';
+import Login from './pages/login/Login';
+import User from './pages/home/User/User';
+import Admin from './pages/home/admin/Admin';
+import Welcome from './pages/welcome/welcome';
+import { Toaster } from 'react-hot-toast';
+import ProtectedRoute from './Components/ProtectedRoute';
+import { useSelector } from 'react-redux';
+import Loader from './Components/Loader';
+import AdminProtectedRoute from './Components/AdminProtectedRoute';
+import AddEditForm from './pages/home/admin/AddEditForm';
 function App() {
-  
+   const { loading } = useSelector((state) => state.loadersReducer);
 
   return (
-     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <h1 className="text-4xl font-bold text-blue-600">
-        Tailwind is working! 🚀
-      </h1>
+     <div>
+      <Toaster position="top-center" reverseOrder={false} />
+      {loading && <Loader />}
+      <BrowserRouter>
+        <Routes> 
+          <Route path="/" element={<Welcome />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/Admin-dashboard" element={<AdminProtectedRoute><Admin /></AdminProtectedRoute>} />
+          <Route path="/add-form" element={<AdminProtectedRoute><AddEditForm /></AdminProtectedRoute>} />
+          <Route path="/edit-form/:id" element={<AdminProtectedRoute><AddEditForm/></AdminProtectedRoute>} />
+          <Route path="/welcome" element={<Welcome />} />
+          <Route path="/user" element={<ProtectedRoute><User /></ProtectedRoute>} />
+        </Routes>
+      </BrowserRouter>
+      
+     
     </div>
 
-  )
+  ) 
 }
 
 export default App
