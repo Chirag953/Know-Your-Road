@@ -24,6 +24,7 @@ function Login() {
             window.location.href = "/Admin-dashboard";
           } else {
             window.location.href = "/user";
+            
           }
         }, 500); // 500ms delay
       } else {
