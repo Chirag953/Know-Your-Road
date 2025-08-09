@@ -82,11 +82,11 @@ useEffect(() => {
             </li>
             <li>
               <a 
-                href="#what we do" 
-                className={`block py-2 ${activeSection === 'what we do' ? 'text-primary font-medium' : 'text-dark hover:text-primary'}`}
+                href="#what-we-do" 
+                className={`block py-2 ${activeSection === 'what-we-do' ? 'text-primary font-medium' : 'text-dark hover:text-primary'}`}
                 onClick={(e) => {
                   e.preventDefault();
-                  scrollToSection('what we do');
+                  scrollToSection('what-we-do');
                 }}
               >
                 what we do
@@ -94,11 +94,11 @@ useEffect(() => {
             </li>
             <li>
               <a 
-                href="#Learn More" 
-                className={`block py-2 ${activeSection === 'Learn More' ? 'text-primary font-medium' : 'text-dark hover:text-primary'}`}
+                href="#learn-more" 
+                className={`block py-2 ${activeSection === 'learn-more' ? 'text-primary font-medium' : 'text-dark hover:text-primary'}`}
                 onClick={(e) => {
                   e.preventDefault();
-                  scrollToSection('Learn More');
+                  scrollToSection('learn-more');
                 }}
               >
                 Learn More
@@ -138,7 +138,7 @@ useEffect(() => {
               <div className="flex gap-4">
                 <button 
                   className="bg-black text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-600 transition-all"
-                  onClick={() => scrollToSection('what we do')}
+                  onClick={() => scrollToSection('what-we-do')}
                 >
                   What We Do
                 </button>
@@ -205,7 +205,7 @@ useEffect(() => {
            <div className="flex gap-4">
                 <button 
                   className="bg-black text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-600 transition-all"
-                  onClick={() => scrollToSection('Learn More')}
+                  onClick={() => scrollToSection('learn-more')}
                 >
                   Learn More
                 </button>
@@ -213,7 +213,7 @@ useEffect(() => {
         </section>
 
         {/* what we do */}
-        <section id="what we do" className="py-20 px-5 bg-light">
+        <section id="what-we-do" className="py-20 px-5 bg-light">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl font-bold text-center text-dark mb-12 relative">
               What We Do
@@ -238,7 +238,7 @@ useEffect(() => {
         </section>
 
         {/* Learn More Section */}
-         <section id="Learn More" className="py-20 px-5 max-w-6xl mx-auto">
+         <section id="learn-more" className="py-20 px-5 max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-center text-dark mb-12 relative">
             Learn More
             <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-primary"></span>
