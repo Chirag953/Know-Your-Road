@@ -9,18 +9,13 @@ const PORT = process.env.PORT || 4000;
 
 
 
-app.use((req, res, next) => {
-  console.log(`Incoming ${req.method} request on ${req.url}`);
-  next();
-});
-
-
 app.use(express.json());
 
 
 const userRoute = require("./routes/userRoute");
+const formRoute = require("./routes/formRoute");
 app.use("/api/users", userRoute);
-
+app.use("/api/forms", formRoute);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

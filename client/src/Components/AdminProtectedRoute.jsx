@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import { GetUser } from "../apicalls/users";
 import { SetCurrentUser } from "../redux/usersSlice";
+import { hideLoader, showLoader } from "../redux/loadersSlice";
 
 function AdminProtectedRoute({ children }) {
   const { currentUser } = useSelector((state) => state.usersReducer);
@@ -12,6 +13,7 @@ function AdminProtectedRoute({ children }) {
 
   const getUser = async () => {
     try {
+      dispatch(showLoader());
       const response = await GetUser();
       if (response.success) {
         dispatch(SetCurrentUser(response.data));
@@ -19,7 +21,9 @@ function AdminProtectedRoute({ children }) {
         toast.error(response.message);
         navigate("/login");
       }
+      dispatch(hideLoader());
     } catch (error) {
+      dispatch(hideLoader());
       toast.error(error.message);
       navigate("/login");
     }
