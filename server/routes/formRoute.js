@@ -1,17 +1,21 @@
 const router = require("express").Router();
 const Form = require("../model/formModel");
 const authMiddleware = require("../middlewares/authMiddleware");
-
+const QRCode = require('qrcode')
 //add new form
 router.post("/add-form", authMiddleware, async (req, res) => {
   try {
     const newForm = new Form(req.body);
-
     const savedForm = await newForm.save();
+    const qrCode = await QRCode.toDataURL(
+      `http://localhost:5173/public/get-road/${savedForm._id}`
+    );
+
      res.send({
       success: true,
       message: "Form added successfully",
       data: savedForm,
+      qrCode,
     });
   } catch (error) {
      console.error("Error adding form:", error);

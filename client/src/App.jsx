@@ -13,6 +13,9 @@ import Loader from './Components/Loader';
 import AdminProtectedRoute from './Components/AdminProtectedRoute';
 import AddEditForm from './pages/home/admin/AddEditForm';
 import Editform from './pages/home/admin/Editform';
+import DisplayQr from './pages/home/admin/DisplayQr';
+import RoadDetails from './pages/home/User/RoadDetails';
+
 function App() {
    const { loading } = useSelector((state) => state.loadersReducer);
 
@@ -29,8 +32,10 @@ function App() {
           <Route path="/add-form" element={<AdminProtectedRoute><AddEditForm /></AdminProtectedRoute>} />
           <Route path="/edit-form/:id" element={<AdminProtectedRoute><AddEditForm/></AdminProtectedRoute>} />
           <Route path="/edit-form-admin/:id" element={<AdminProtectedRoute><Editform/></AdminProtectedRoute>} />
+          <Route path='/qrCode/download' element={<AdminProtectedRoute><DisplayQr/></AdminProtectedRoute>} />
           <Route path="/welcome" element={<Welcome />} />
           <Route path="/user" element={<ProtectedRoute><User /></ProtectedRoute>} />
+          <Route path='/public/get-road/:id' element={<RoadDetails />} />
         </Routes>
       </BrowserRouter>
       
