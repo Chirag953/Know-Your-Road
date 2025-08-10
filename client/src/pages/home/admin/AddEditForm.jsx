@@ -40,7 +40,7 @@ function AddEditForm() {
           if(response.qrCode){
            navigate("/qrCode/download", { state: { qrCode: response.qrCode } });
           }else{
-            toast.error("Failed to generate QR code");
+            navigate("/Admin-dashboard");
           }
         
       } else {
