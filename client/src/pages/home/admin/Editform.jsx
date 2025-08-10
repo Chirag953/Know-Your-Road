@@ -58,7 +58,7 @@ function Editform() {
   return (
    form && (
   <div className="flex flex-col h-screen">
-    {/* HEADER */}
+    
     <header className="bg-white shadow-md fixed w-full top-0 z-50">
       <div className="flex justify-between items-center py-4 max-w-[75rem] mx-auto">
         <div
@@ -83,7 +83,7 @@ function Editform() {
       </div>
     </header>
 
-    {/* BUTTONS BELOW HEADER */}
+    
     <div className="mt-20 px-5 flex justify-end gap-4">
       <Button
         title="Edit Form"
@@ -93,7 +93,7 @@ function Editform() {
       <Button title="Delete" variant="container" onClick={() => deleteForm()} />
     </div>
 
-    {/* MAIN CONTENT CENTERED */}
+   
     <div className="flex flex-1 justify-center items-center">
       <div className="max-w-3xl w-full bg-white shadow-lg rounded-lg p-8">
         <h1 className="text-3xl font-bold mb-6 text-center">
