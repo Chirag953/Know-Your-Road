@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { hideLoader, showLoader } from "../../redux/loadersSlice";
+import bgimg from "../../assets/bgimg.webp";
 function Register() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -32,8 +33,10 @@ function Register() {
     }
   };
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-500">
-      <div className="p-5 w-[450px] bg-white rounded-lg shadow-lg">
+    <div className="flex justify-center items-center h-screen bg-cover bg-center"
+    style={{ backgroundImage: `url(${bgimg})` }}
+    >
+      <div className="p-5 w-[450px] bg-white rounded-lg shadow-lg bg-white/50 backdrop-blur-md">
         <div className="flex flex-col gap-5 ">
           <h1 className="text-2xl text-center font-bold uppercase">
             Know Your Road -Register
@@ -69,9 +72,14 @@ function Register() {
               user.password.length < 3
             }
           />
-          <Link to="/login" className="text-center underline">
-            Already have an account? Login
+          <div className="flex justify-center gap-1.5">
+            <div>
+                  Already have an account? 
+            </div>
+            <Link to="/login" className="text-center text-sky-800">
+            Login
           </Link>
+          </div>
         </div>
       </div>
     </div>
