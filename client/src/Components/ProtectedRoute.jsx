@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import { GetUser } from "../apicalls/users";
 import { SetCurrentUser } from "../redux/usersSlice";
-import { showLoader } from "../redux/loadersSlice";
+import { showLoader,hideLoader} from "../redux/loadersSlice";
 
 function UserProtectedRoute({ children }) {
   const { currentUser } = useSelector((state) => state.usersReducer);

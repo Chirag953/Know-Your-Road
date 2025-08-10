@@ -5,6 +5,7 @@ import { toast } from "react-hot-toast";
 import { LoginUser } from "../../apicalls/users";
 import { useDispatch } from "react-redux";
 import { hideLoader, showLoader } from "../../redux/loadersSlice";
+import bgimg from "../../assets/bgimg.webp";
 
 function Login() {
   const [user, setUser] = React.useState({
@@ -24,6 +25,7 @@ function Login() {
             window.location.href = "/Admin-dashboard";
           } else {
             window.location.href = "/user";
+            
           }
         }, 500); // 500ms delay
       } else {
@@ -38,8 +40,11 @@ function Login() {
     }
   };
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-500">
-      <div className="p-5 w-[450px] bg-white rounded-lg shadow-lg">
+    <div className="flex justify-center items-center h-screen bg-cover bg-center" 
+    style={{ backgroundImage: `url(${bgimg})` }}
+    >
+
+      <div className="p-5 w-[450px] bg-white rounded-lg shadow-lg bg-white/50 backdrop-blur-md">
         <div className="flex flex-col gap-5 ">
           <h1 className="text-2xl text-center font-bold uppercase">
             Know Your Road -Login
@@ -65,10 +70,15 @@ function Login() {
             className="w-full"
             disabled={user.email.length < 3 || user.password.length < 3}
           />
-          <Link to="/register" className="text-center underline">
-            Don't have an account? Register
+          <div className="flex justify-center gap-1.5">
+            <div className= "">
+            Don't have any account?
+          </div>
+          <Link to="/register" className="text-center text-sky-800">
+            Register
           </Link>
         </div>
+          </div>
       </div>
     </div>
   );
