@@ -1,4 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
+//import Logo from '../../../assets/Logo.jpeg';
+import Scane from '../../../assets/scane.png';
+import bgHomeImg from '../../../assets/bgimg.webp';
+
 
 function User() {
 const headerRef = useRef(null);
@@ -77,7 +81,12 @@ return (
 {/* Fixed header */}
 <header ref={headerRef} className="bg-white shadow-md fixed w-full top-0 z-50">
 <nav className="flex justify-between items-center py-4 px-5 max-w-6xl mx-auto">
-<div className="text-2xl font-bold text-primary">KNOW YOUR ROAD</div>
+{/* <div > <img 
+            src={Logo}
+            alt="Know Your Road Logo"
+            className="h-12 w-auto object-contain cursor-pointer"/>
+            </div> */}
+            <div className="text-2xl font-bold text-primary">KNOW YOUR ROAD</div>
 
 <ul
 className={`md:flex gap-8 ${
@@ -157,26 +166,28 @@ Contact
 {/* Scrollable content container (fills remaining viewport under the fixed header) */}
 <main ref={containerRef} className="pt-16">
 {/* Hero Section */}
-<section id="home" className="min-h-screen flex items-center py-20 px-5 max-w-6xl mx-auto">
-<div className="md:flex items-center gap-12 w-full">
+<section id="home" className="min-h-screen h-screen. w-full flex items-center py-20 px-5 mx-auto bg-cover bg-center bg-no-repeat " style={{
+    backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${bgHomeImg})`
+  }}>
+<div className="md:flex items-center gap-12 w-full pl-40">
 <div className="md:w-1/2 mb-12 md:mb-0">
-<h1 className="text-5xl font-bold text-dark mb-4">Smart QR-Based Road Transparency System</h1>
-<h2 className="text-3xl text-primary mb-6"> Know Your Road....</h2>
+<h1 className="text-7xl font-bold text-white mb-4">Smart QR-Based Road Transparency System</h1>
+<h2 className="text-5xl text-white mb-6"> Know Your Road....</h2>
 <div className="flex gap-4">
 <button
-className="bg-black text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-600 transition-all"
+className="bg-white text-black px-6 py-3 rounded-lg font-medium hover:bg-blue-600 transition-all"
 onClick={() => scrollToSection('what-we-do')}
 >
 What We Do
 </button>
-<button className="border-2 border-primary text-primary px-6 py-3 rounded-lg font-medium hover:bg-primary hover:border-blue-600 hover:text-blue-600 transition-all">
+<button className="border-2 border-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary hover:border-blue-600 hover:text-blue-600 transition-all">
 <span className="flex items-center gap-2">Scan Here</span>
 </button>
 </div>
 </div>
-<div className="md:w-1/2 flex justify-center">
+{/* <div className="md:w-1/2 flex justify-center">
 <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-light shadow-lg flex items-center justify-center text-gray-400">Photo</div>
-</div>
+</div> */}
 </div>
 </section>
 
@@ -209,14 +220,17 @@ Services
 </div>
 <div className="md:w-1/2 flex justify-center">
 <div className="w-full h-80 rounded-lg bg-gray-100 shadow-lg flex items-center justify-center text-gray-400">
-Photo
+<img 
+            src={Scane}
+            alt="Know Your Road Logo"
+            className="w-full h-80 rounded-lg shadow-lg flex items-center justify-center"/>
 </div>
 </div>
 </div>
 </section>
 
 {/* what we do */}
-<section id="what-we-do" className="py-20 px-5 bg-gray-100">
+<section id="what-we-do" className="py-20 px-5 bg-yellow-100">
 <div className="max-w-6xl mx-auto">
 <h2 className="text-4xl font-bold text-center text-dark mb-12 relative">
 What We Do
@@ -260,7 +274,7 @@ Services
 </section>
 
 {/* Contact Section */}
-<section id="contact" className="py-20 px-5 bg-gray-100">
+<section id="contact" className="py-20 px-5 bg-yellow-100">
 <div className="max-w-6xl mx-auto">
 <h2 className="text-4xl font-bold text-center text-dark mb-12 relative">
 Let's Connect
