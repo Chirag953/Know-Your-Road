@@ -1,16 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Button from "../../../Components/Button";
 import { useDispatch } from "react-redux";
 import { hideLoader, showLoader } from "../../../redux/loadersSlice";
-import { AddnewForm } from "../../../apicalls/form";
+import { AddnewForm, updateFormById } from "../../../apicalls/form";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { getFormById } from "../../../apicalls/form";
+
 function AddEditForm() {
   const { currentUser } = useSelector((state) => state.usersReducer);
-  
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
+  const id = useParams().id;
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     roadName: "",
     location: "",
@@ -20,38 +24,71 @@ function AddEditForm() {
     officer: "",
     governmentRole: "",
   });
-
+   
+  
   const submitInfo = async () => {
-      
-      try {
-        dispatch(showLoader());
-        const response = await AddnewForm({...formData, user: currentUser._id});
-        if (response.success){
-            toast.success(response.message);
-            navigate("/Admin-dashboard");
-        }else{
-            toast.error(response.message);
-        }
-        dispatch(hideLoader());
-      } catch (error) {
-        dispatch(hideLoader());
-        toast.error(error.message);
+     let response;
+    try {
+      dispatch(showLoader());
+      if (id) {
+        response = await updateFormById({ ...formData, id });
+      } else {
+        response = await AddnewForm({ ...formData, user: currentUser._id });
       }
+      if (response.success) {
+        toast.success(response.message);
+          if(response.qrCode){
+           navigate("/qrCode/download", { state: { qrCode: response.qrCode } });
+          }else{
+            navigate("/Admin-dashboard");
+          }
+        
+      } else {
+        toast.error(response.message);
+      }
+      dispatch(hideLoader());
+    } catch (error) {
+      dispatch(hideLoader());
+      toast.error(error.message);
+    }
   };
-
+  const getData = async () => {
+    try {
+      dispatch(showLoader());
+      const response = await getFormById(id);
+      if (response.success) {
+        setFormData(response.data);
+      } else {
+        toast.error(response.message);
+      }
+      dispatch(hideLoader());
+    } catch (error) {
+      dispatch(hideLoader());
+      toast.error(error.message);
+    }
+  };
+  useEffect(() => {
+    if (id) {
+      getData();
+    }
+  }, []);
   return (
     <div className="flex flex-col h-screen">
       <header className="bg-white shadow-md fixed w-full top-0 z-50">
         <div className="flex justify-between items-center py-4 max-w-[75rem] mx-auto px-4">
-          <div className="text-2xl font-bold text-primary cursor-pointer">
+          <div
+            className="text-2xl font-bold text-primary cursor-pointer"
+            onClick={() => navigate("/Admin-dashboard")}
+          >
             KYR
           </div>
           <div className="bg-black text-white rounded p-2 flex gap-4">
             <h1 className="underline uppercase font-semibold">
               {currentUser.name}
             </h1>
-            <i className="ri-logout-circle-r-line cursor-pointer"
-            onClick={() => {
+            <i
+              className="ri-logout-circle-r-line cursor-pointer"
+              onClick={() => {
                 localStorage.removeItem("token");
                 navigate("/login");
               }}
@@ -64,7 +101,7 @@ function AddEditForm() {
         <div className="flex justify-center px-4">
           <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-2xl space-y-6">
             <h2 className="text-2xl font-bold text-center mb-4">
-              Road Project Details
+              {id ? "Road Project Details Edit" : "Road Project Details"}
             </h2>
 
             <input

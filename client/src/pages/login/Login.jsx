@@ -12,10 +12,11 @@ function Login() {
     email: "",
     password: "",
   });
- const dispatch = useDispatch();
+  const dispatch = useDispatch();
+
   const login = async () => {
     try {
-      dispatch(showLoader())
+      dispatch(showLoader());
       const response = await LoginUser(user);
       if (response.success) {
         localStorage.setItem("token", response.data.token);
@@ -25,9 +26,8 @@ function Login() {
             window.location.href = "/Admin-dashboard";
           } else {
             window.location.href = "/user";
-            
           }
-        }, 500); // 500ms delay
+        }, 500);
       } else {
         toast.error(response.message);
       }
@@ -39,46 +39,66 @@ function Login() {
       );
     }
   };
+
   return (
-    <div className="flex justify-center items-center h-screen bg-cover bg-center" 
-    style={{ backgroundImage: `url(${bgimg})` }}
+    <div
+      className="flex justify-center items-center min-h-screen bg-cover bg-center relative px-4 sm:px-6 lg:px-8"
+      style={{ backgroundImage: `url(${bgimg})` }}
     >
 
-      <div className="p-5 w-[450px] bg-white rounded-lg shadow-lg bg-white/50 backdrop-blur-md">
-        <div className="flex flex-col gap-5 ">
-          <h1 className="text-2xl text-center font-bold uppercase">
-            Know Your Road -Login
-          </h1>
+      <div className="absolute inset-0 bg-black/60"></div>
 
-          <input
-            type="email"
-            placeholder="Enter your email"
-            value={user.email}
-            onChange={(e) => setUser({ ...user, email: e.target.value })}
-          />
-          <input
-            type="password"
-            placeholder="Enter your password"
-            value={user.password}
-            onChange={(e) => setUser({ ...user, password: e.target.value })}
-          />
+      <div className="relative bg-white w-full max-w-md sm:max-w-lg md:max-w-md rounded-xl p-6 sm:p-8 shadow-lg z-10">
+        <h2 className="text-xl sm:text-2xl font-bold text-center mb-2">
+          Welcome Back to KYR - Login
+        </h2>
+        <p className="text-sm sm:text-base text-gray-500 text-center mb-6">
+          Already a member? Log in with your email address and password.
+        </p>
 
-          <Button
-            title="LOGIN"
-            onClick={login}
-            variant="container"
-            className="w-full"
-            disabled={user.email.length < 3 || user.password.length < 3}
-          />
-          <div className="flex justify-center gap-1.5">
-            <div className= "">
-            Don't have any account?
-          </div>
-          <Link to="/register" className="text-center text-sky-800">
+        <input
+          type="email"
+          placeholder="Email address"
+          value={user.email}
+          onChange={(e) => setUser({ ...user, email: e.target.value })}
+          className="w-full border rounded-lg px-3 py-2 sm:py-3 mb-4 focus:outline-none focus:ring-3 focus:ring-gray-500 text-sm sm:text-base"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={user.password}
+          onChange={(e) => setUser({ ...user, password: e.target.value })}
+          className="w-full border rounded-lg px-3 py-2 sm:py-3 mb-4 focus:outline-none focus:ring-3 focus:ring-gray-500 text-sm sm:text-base"
+        />
+
+        <div className="flex items-center mb-4">
+          <input type="checkbox" id="remember" className="mr-2" />
+          <label htmlFor="remember" className="text-sm text-gray-700">
+            Remember me
+          </label>
+        </div>
+
+        <Button
+          title="Login "
+          onClick={login}
+          variant="container"
+          className="w-full bg-gray-500 text-white py-2 sm:py-3 rounded-lg hover:bg-gray-600 transition disabled:opacity-50 text-sm sm:text-base"
+          disabled={user.email.length < 3 || user.password.length < 3}
+        />
+
+
+        <div className="flex items-center my-4">
+          <div className="flex-1 border-t"></div>
+          <span className="px-2 text-gray-400 text-sm">or</span>
+          <div className="flex-1 border-t"></div>
+        </div>
+
+        <p className="text-center text-sm sm:text-base">
+          Don’t have an account?{" "}
+          <Link to="/register" className="text-blue-600 hover:underline">
             Register
           </Link>
-        </div>
-          </div>
+        </p>
       </div>
     </div>
   );
