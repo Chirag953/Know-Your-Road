@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 //import Logo from '../../../assets/Logo.jpeg';
 import Scane from "../../../assets/scane.png";
 import bgHomeImg from "../../../assets/bgimg.webp";
+import bgImg from "../../../assets/BgImg.png";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -215,7 +216,7 @@ function User() {
           id="home"
           className="min-h-screen h-screen. w-full flex items-center py-20 px-5 mx-auto bg-cover bg-center bg-no-repeat "
           style={{
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${bgHomeImg})`,
+            backgroundImage: `url(${bgImg})`,
           }}
         >
           <div className="md:flex items-center gap-12 w-full pl-40">
