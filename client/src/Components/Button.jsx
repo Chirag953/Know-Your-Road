@@ -7,13 +7,13 @@ const Button = ({
   disabled,
   className = "",
 }) => {
-  const baseClasses = "px-5 h-10 rounded"; // added rounded for better style
+  const baseClasses = "w-full border rounded-lg px-3 py-2 sm:py-3 focus:outline-none focus:ring-3 focus:ring-gray-500 text-sm sm:text-base"; // added rounded for better style
 
   const variantClasses =
     variant === "container"
-      ? "bg-gray-500 text-white"
+      ? "bg-blue-500 text-white"
       : variant === "outlined"
-      ? "border border-gray-500 text-gray-500 bg-transparent"
+      ? "border border-blue-500 text-gray-500 bg-transparent"
       : "";
 
   const disabledClasses = disabled ? "opacity-50 cursor-not-allowed" : "";

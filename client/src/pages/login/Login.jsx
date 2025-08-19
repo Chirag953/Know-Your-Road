@@ -82,7 +82,7 @@ function Login() {
           title="Login "
           onClick={login}
           variant="container"
-          className="w-full bg-gray-500 text-white py-2 sm:py-3 rounded-lg hover:bg-gray-600 transition disabled:opacity-50 text-sm sm:text-base"
+          className="w-full text-sm sm:text-base"
           disabled={user.email.length < 3 || user.password.length < 3}
         />
 
