@@ -1,22 +1,29 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500&display=swap');@tailwind base;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500&display=swap");
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-*{
-    font-family:Montserrat, sans-serif !important;
-    overflow: hidden;
+* {
+  font-family: Montserrat, sans-serif !important;
+  overflow: hidden;
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
 }
-
+html, body, #root {
+  min-height: 100%;
+  height: auto;
+  overflow-y: auto !important;
+}
 input {
-    border:1px solid #ccc;
-    padding:20px;
-    padding-top: 8px;
-    padding-bottom: 8px ;
+  border: 1px solid #ccc;
+  padding: 20px;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 input:focus {
-    border:1px solid #000;
-    outline:none;
+  border: 1px solid #000;
+  outline: none;
 }
 html {
   scroll-behavior: smooth;
