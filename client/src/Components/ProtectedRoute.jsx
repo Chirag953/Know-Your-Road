@@ -47,7 +47,7 @@ function UserProtectedRoute({ children }) {
 
   return currentUser ? <>
   {children}
-  {currentUser.name}
+  {/* {currentUser.name} */}
   
   </> : null;
 }
