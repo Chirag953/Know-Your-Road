@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 function User() {
   const { currentUser } = useSelector((state) => state.usersReducer);
   const navigate = useNavigate();
+   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   // const { currentUser } = useSelector((state) => state.usersReducer);
   //   const headerRef = useRef(null);
   //   const containerRef = useRef(null);
@@ -465,9 +466,56 @@ function User() {
         </ul>
 
         
+                {/* Mobile Menu Button */}
         <div className="md:hidden">
-          <button className="p-2">Menu</button>
+          <button
+            className="p-2 border rounded"
+            onClick={() => setIsDrawerOpen(true)}
+          >
+            ☰
+          </button>
         </div>
+      </div>
+
+      {/* Drawer Overlay */}
+      {isDrawerOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-40"
+          onClick={() => setIsDrawerOpen(false)}
+        ></div>
+      )}
+
+      {/* Drawer Panel */}
+      <div
+        className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-50 transform transition-transform duration-300 ${
+          isDrawerOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="flex justify-between items-center p-4 border-b">
+          <h2 className="text-lg font-semibold">Menu</h2>
+          <button onClick={() => setIsDrawerOpen(false)}>✕</button>
+        </div>
+
+        <ul className="flex flex-col gap-4 p-6 text-[16px]">
+          <li><a href="#home" onClick={() => setIsDrawerOpen(false)}>Home</a></li>
+          <li><a href="#about" onClick={() => setIsDrawerOpen(false)}>About us</a></li>
+          <li><a href="#mission" onClick={() => setIsDrawerOpen(false)}>Our Mission</a></li>
+          <li><a href="#what-we-do" onClick={() => setIsDrawerOpen(false)}>What we do</a></li>
+          <li><a href="#services" onClick={() => setIsDrawerOpen(false)}>Services</a></li>
+          <li><a href="#contact" onClick={() => setIsDrawerOpen(false)}>Contact</a></li>
+          <div className="bg-black text-white rounded p-2 flex gap-4 items-center">
+            <h1 className="underline uppercase font-semibold">
+              {currentUser?.name}
+            </h1>
+            <i
+              className="ri-logout-circle-r-line cursor-pointer text-lg"
+              onClick={() => {
+                localStorage.removeItem("token");
+                navigate("/login");
+              }}
+            ></i>
+          </div>
+        </ul>
       </div>
     </nav>
   );
