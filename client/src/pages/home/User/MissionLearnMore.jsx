@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function OurMission() {
+export default function MissionLearnMore() {
    const navigate = useNavigate();
   const features = [
     {
@@ -43,14 +43,6 @@ export default function OurMission() {
               authorities, creating a connected community that drives real change on our roads.
             </p>
 
-            <button
-              className="inline-block bg-[#2B78F6] text-white px-6 py-3 rounded-md font-medium
-                         transition-transform transform hover:-translate-y-1 focus:outline-none"
-              aria-label="Learn more about our mission"
-              onClick={() => navigate("/MissionLearnMore")}
-            >
-              Learn More
-            </button>
           </div>
 
           {/* Right column: 2x2 text items */}
