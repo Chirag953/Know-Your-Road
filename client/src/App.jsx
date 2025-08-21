@@ -24,6 +24,8 @@ import TeamInfo from "./pages/home/User/TeamInfo";
 import Contact from "./pages/home/User/Contact";
 import Footer from "./pages/home/User/Footer";
 import ScanQr from "./pages/home/User/ScanQr";
+import AboutLearnMore from "./pages/home/User/AboutLearnMore";
+import MissionLearnMore from "./pages/home/User/MissionLearnMore";
 function App() {
   const { loading } = useSelector((state) => state.loadersReducer);
 
@@ -97,6 +99,8 @@ function App() {
             }
           />
           <Route path="/ScanQr" element={<ProtectedRoute><ScanQr /></ProtectedRoute>} />
+          <Route path="/AboutLearnMore" element={<ProtectedRoute><AboutLearnMore/></ProtectedRoute>} />
+          <Route path="/MissionLearnMore" element={<ProtectedRoute><MissionLearnMore/></ProtectedRoute>} />
         </Routes>
       </BrowserRouter>
     </div>

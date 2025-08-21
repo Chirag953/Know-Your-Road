@@ -1,9 +1,9 @@
 import React from "react";
-import scane from "../../../assets/scane.png";
-import { useNavigate } from "react-router-dom";
+import LogoBgRemove from "../../../assets/LogoBgRemove.png";
 
-function AboutUs() {
-  const navigate = useNavigate();
+import scane from "../../../assets/scane.png";
+
+function AboutLearnMore() {
   return (
     <section
       id="about"
@@ -32,10 +32,6 @@ function AboutUs() {
               ipsum dolor sit, amet consectetur adipisicing elit. Hic sit harum
               sapiente.
             </p>
-
-            <button className="border-2 px-6 py-3 rounded-lg font-medium bg-blue-600 text-white" onClick={() => navigate("/AboutLearnMore")}>
-              Learn More
-            </button>
           </div>
         </div>
       </div>
@@ -79,4 +75,4 @@ function AboutUs() {
   );
 }
 
-export default AboutUs;
+export default AboutLearnMore;
