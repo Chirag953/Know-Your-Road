@@ -1,7 +1,8 @@
 import React from "react";
 import bgHomeImg from "../../../assets/bgimg.webp";
-
+import { useNavigate } from "react-router-dom";
 function Home() {
+   const navigate = useNavigate();
   return (
     <section
       id="home"
@@ -35,6 +36,7 @@ function Home() {
               className="bg-white text-black px-6 py-3 rounded-lg font-medium
                          transition-transform duration-200 ease-out hover:scale-105 hover:-translate-y-1 active:scale-95
                          focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
+               onClick={() => navigate("/ScanQr")}
             >
               <span className="flex items-center gap-2">Scan Here</span>
             </button>

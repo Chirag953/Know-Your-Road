@@ -23,6 +23,7 @@ import Services from "./pages/home/User/Services";
 import TeamInfo from "./pages/home/User/TeamInfo";
 import Contact from "./pages/home/User/Contact";
 import Footer from "./pages/home/User/Footer";
+import ScanQr from "./pages/home/User/ScanQr";
 function App() {
   const { loading } = useSelector((state) => state.loadersReducer);
 
@@ -95,6 +96,7 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route path="/ScanQr" element={<ProtectedRoute><ScanQr /></ProtectedRoute>} />
         </Routes>
       </BrowserRouter>
     </div>
