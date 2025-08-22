@@ -17,20 +17,9 @@ function AboutUs() {
 
           <div className="flex-1">
             <h3 className="text-blue-800 text-xl font-bold mb-3">About us</h3>
-            <h1 className="text-3xl font-bold mb-4">
-              this is the section of about our fill <br />
-              information here
-            </h1>
+      
             <p className="text-gray-700 mb-6">
-              Lorem ipsum dolor sit Lorem ipsum Lorem ipsum, dolor sit amet
-              consectetur adipisicing elit. Sapiente, dolores distinctio nihil
-              optio, dolor consequuntur nostrum ducimus ut dicta sunt odio.
-              Voluptatum. dolor sit, amet consectetur adipisicing elit. Quibusdam
-              quod aliquid rem. Ex, dolores animi sit eius debitis aspernatur
-              voluptate magni consectetur doloremque enim est distinctio Lorem
-              ipsum dolor sit amet, consectetur adipisicing elit. Voluptates,Lorem
-              ipsum dolor sit, amet consectetur adipisicing elit. Hic sit harum
-              sapiente.
+              Our system places QR codes along roads to give citizens instant access to important road information. By scanning the codes, people can check maintenance history, track ongoing repairs with completion dates, report issues, and view transparent spending reports for projects. This promotes accountability, bridges the gap between citizens and authorities, and helps create safer, smarter cities.
             </p>
 
             <button className="border-2 px-6 py-3 rounded-lg font-medium bg-blue-600 text-white" onClick={() => navigate("/AboutLearnMore")}>
