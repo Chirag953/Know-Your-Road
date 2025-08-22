@@ -1,49 +1,98 @@
-import React from 'react'
+import React from "react";
+import NewImage from "../../../assets/scaneQrCode.jpg"; 
 
-function WhatWEDo() {
+function CitizenEmpowerment() {
   return (
-    <section id="what-we-do" className="py-20 px-5 bg-yellow-100">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center text-dark mb-12 relative">
-          What We Do
-          <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-primary"></span>
-        </h2>
+    <div className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-white px-6 md:px-16">
+      {/* Left Content */}
+      <div className="md:w-1/2 w-full space-y-6">
+        <p className="text-blue-600 font-semibold">What we do</p>
+        <h1 className="text-3xl md:text-4xl font-bold leading-snug text-gray-900">
+          Empowering Citizens with <br /> Tech & Trust
+        </h1>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold text-primary mb-4">
-              QR Code Scanning
-            </h3>
-            <p>
-              Scan QR codes placed near roads to access comprehensive
-              project information instantly.
-            </p>
+        <div className="mt-6 space-y-5">
+          {/* Item 1 */}
+          <div className="flex items-start space-x-3">
+            <input
+              type="checkbox"
+              checked
+              readOnly
+              className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+            />
+            <div>
+              <h3 className="font-semibold text-gray-900">Access Road Details</h3>
+              <p className="text-gray-600 text-sm">
+                Scan the QR code to see when the road was built, who built it,
+                cost, department, and lifespan.
+              </p>
+            </div>
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold text-primary mb-4">
-              Project Transparency
-            </h3>
-            <p>
-              View contractor details, project costs, timelines, and
-              responsible officials.
-            </p>
+          {/* Item 2 */}
+          <div className="flex items-start space-x-3">
+            <input
+              type="checkbox"
+              checked
+              readOnly
+              className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+            />
+            <div>
+              <h3 className="font-semibold text-gray-900">Report Problems</h3>
+              <p className="text-gray-600 text-sm">
+                If damaged, file a complaint online with photos and location,
+                track it, and get updates in 15 days.
+              </p>
+            </div>
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold text-primary mb-4">
-              Accountability
-            </h3>
-            <p>
-              Promote government accountability by making road project
-              details publicly accessible.
-            </p>
+          {/* Item 3 */}
+          <div className="flex items-start space-x-3">
+            <input
+              type="checkbox"
+              checked
+              readOnly
+              className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+            />
+            <div>
+              <h3 className="font-semibold text-gray-900">Ensure Accountability</h3>
+              <p className="text-gray-600 text-sm">
+                Hold contractors responsible for early road damage.
+              </p>
+            </div>
+          </div>
+
+          {/* Item 4 */}
+          <div className="flex items-start space-x-3">
+            <input
+              type="checkbox"
+              checked
+              readOnly
+              className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+            />
+            <div>
+              <h3 className="font-semibold text-gray-900">
+                Empower Citizens & Government
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Give citizens real-time data and provide the government with
+                direct public feedback.
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </section>
-  )
+
+      {/* Right Image */}
+      <div className="md:w-1/2 w-full mt-10 md:mt-0 flex justify-center">
+        <img
+          src={NewImage}
+          alt="Citizen Empowerment"
+          className="rounded-lg shadow-lg w-full h-full md:w-4/5"
+        />
+      </div>
+    </div>
+  );
 }
 
-export default WhatWEDo
-
+export default CitizenEmpowerment;

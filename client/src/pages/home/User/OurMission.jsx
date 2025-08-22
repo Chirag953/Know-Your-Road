@@ -57,12 +57,12 @@ export default function OurMission() {
           <div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               {features.map((f, idx) => (
-                <div key={idx} className="flex items-start gap-4">
+                <div key={idx} >
                   {/* circle placeholder for icon (empty) */}
                   <div className="w-12 h-12 rounded-full bg-[#2B78F6] flex items-center justify-center flex-shrink-0" />
 
                   {/* text */}
-                  <div>
+                  <div className="py-4">
                     <h3 className="text-base font-semibold text-gray-900 mb-1">{f.title}</h3>
                     <p className="text-sm text-gray-700 leading-relaxed">{f.desc}</p>
                   </div>
