@@ -14,10 +14,12 @@ app.use(express.json());
 
 const userRoute = require("./routes/userRoute");
 const formRoute = require("./routes/formRoute");
+const contactRouter = require("./routes/contactRoute");
 const PublicViewRoute = require("./routes/PublicViewRoute");
 app.use("/api/users", userRoute);
 app.use("/api/forms", formRoute);
 app.use("/api/public", PublicViewRoute);
+app.use("/api/contactus",contactRouter );
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
