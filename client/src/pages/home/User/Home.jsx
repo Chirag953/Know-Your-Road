@@ -6,13 +6,13 @@ function Home() {
   return (
     <section
       id="home"
-      className="w-full min-h-screen bg-cover bg-center text-white flex items-center relative scroll-mt-16"
+      className="w-full min-h-screen bg-cover bg-center text-white flex items-center relative scroll-mt-16 "
       style={{
         backgroundImage: `url(${bgHomeImg})`,
       }}
     >
       
-      <div className="container mx-auto px-6 py-24">
+      <div className="container mx-auto px-6 py-24 ml-[37px]">
         <div className="max-w-[853px]">
           <h1 className="text-4xl md:text-7xl font-bold text-white mb-4">
             Smart QR-Based <br />

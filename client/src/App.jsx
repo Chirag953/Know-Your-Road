@@ -26,6 +26,7 @@ import Footer from "./pages/home/User/Footer";
 import ScanQr from "./pages/home/User/ScanQr";
 import AboutLearnMore from "./pages/home/User/AboutLearnMore";
 import MissionLearnMore from "./pages/home/User/MissionLearnMore";
+import Testimonial from "./pages/home/User/Testimonial";
 function App() {
   const { loading } = useSelector((state) => state.loadersReducer);
 
@@ -91,6 +92,7 @@ function App() {
                   <OurMission />
                   <WhatWEDo />
                   <Services />
+                  <Testimonial/>
                   <TeamInfo />
                   <Contact />
                   <Footer />
