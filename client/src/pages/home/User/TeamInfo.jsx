@@ -9,7 +9,7 @@ const team = [
 
 function TeamInfo() {
   return (
-    <section id="team" className="bg-[#ebd6a5] py-20">
+    <section id="team" className="bg-[#FCEDC6] py-20">
       <div className="max-w-7xl mx-auto px-6">
         
         
