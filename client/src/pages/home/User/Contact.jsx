@@ -1,6 +1,46 @@
-import React from 'react'
+import React from 'react';
+import { Link } from "react-router-dom";
+import Button from "../../../Components/Button";
+import { toast } from "react-hot-toast";
+import { contactUs } from "../../../apicalls/users";
+import { useDispatch } from "react-redux";
+import { hideLoader, showLoader } from "../../../redux/loadersSlice";
 
 function Contact() {
+    const [contact, setContact] = React.useState({
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
+    const dispatch = useDispatch();
+    const contactus = async (e) => {
+      e.preventDefault();
+        try {
+          dispatch(showLoader());
+          const response = await contactUs(contact);
+          if (response.success) {
+            toast.success(response.message);
+             setContact({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+          } else {
+            toast.error(response.message);
+          }
+          dispatch(hideLoader());
+        } catch (error) {console.log(error)
+          dispatch(hideLoader());
+          toast.error(
+            error.response?.data?.message || error.message || "Something went wrong"
+            
+          );
+        }
+      };
+    
+    
   return (
     <section id="contact" className="py-20 px-5 bg-white">
       <div className="max-w-6xl mx-auto">
@@ -37,7 +77,11 @@ function Contact() {
             <form>
               <div className="mb-6">
                 <input
-                  type="text"
+                  type="text" 
+                  name = "name"
+                  value={contact.name}
+                  onChange={(e) =>
+                setContact({ ...contact, name: e.target.value })}
                   placeholder="Your Name"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
                   required
@@ -46,6 +90,10 @@ function Contact() {
               <div className="mb-6">
                 <input
                   type="email"
+                  name = "email"
+                   value={contact.email}
+                  onChange={(e) =>
+                setContact({ ...contact, email: e.target.value })}
                   placeholder="Your Email"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
                   required
@@ -54,6 +102,10 @@ function Contact() {
               <div className="mb-6">
                 <input
                   type="text"
+                  name = "subject"
+                   value={contact.subject}
+                  onChange={(e) =>
+                setContact({ ...contact, subject: e.target.value })}
                   placeholder="Subject"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
                 />
@@ -61,13 +113,19 @@ function Contact() {
               <div className="mb-6">
                 <textarea
                   placeholder="Your Message"
+                  name = "message"
+                   value={contact.message}
+                  onChange={(e) =>
+                setContact({ ...contact, message: e.target.value })}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300 min-h-[150px]"
                   required
                 ></textarea>
               </div>
               <button
-                type="button"
+                type="submit"
                 className="bg-black text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-600 transition-all w-full"
+                onClick={contactus}
+                title="Submit"
               >
                 Send Message
               </button>
@@ -80,3 +138,5 @@ function Contact() {
 }
 
 export default Contact
+
+

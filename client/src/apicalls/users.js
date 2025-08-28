@@ -37,6 +37,17 @@ export const GetUser = async () => {
     }
     
 };
+//get user contact message 
+export const contactUs = async (payload)=> {
+try{
+    const response = await axiosInstance.post('/api/contactus/add-contact', payload);
+    return response.data;
+
+}catch(error){
+    throw error || error.response.data || "Something went wrong";
+}
+
+};
 
 //add comment
  
