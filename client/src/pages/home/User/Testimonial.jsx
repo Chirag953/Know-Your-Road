@@ -62,9 +62,9 @@ function Testimonial() {
   }, []);
   return (
    <section className="py-8 min-h-[560px]">
-      <div className="max-w-6xl ml-[40px] px-6"> 
+      <div className="max-w-6xl mx-auto px-6 mt-6"> 
         
-        <div className="flex items-start justify-between mt-11">
+        <div className="flex items-start justify-between ">
           <div>
             <p className="text-blue-600 font-semibold">Testimonial</p>
             <h2 className="text-3xl font-extrabold leading-tight">
@@ -115,7 +115,7 @@ function Testimonial() {
                 style={{ aspectRatio: "1 / 1" }}
               >
                
-                <div className="flex items-start justify-between">
+                <div className="flex items-start justify-between ">
                   <div className="flex items-start gap-3">
                     <div
                       className="h-10 w-10 rounded-full bg-indigo-50 text-indigo-700 font-semibold flex items-center justify-center"
