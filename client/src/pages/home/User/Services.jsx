@@ -35,11 +35,11 @@ function Services() {
     >
       <div className="max-w-7xl mx-auto px-6">
        
-        <div className="mb-8 text-center">
-          <h3 className="text-sm font-semibold text-[#2B78F6] mb-2">
+        <div className="mb-8 ">
+          <h3 className="text-sm font-semibold text-[#2B78F6] mb-2 ">
             Services
           </h3>
-          <p className="max-w-3xl mx-auto text-sm text-gray-700">
+          <p className="max-w-3xl  text-sm text-gray-700">
             Our Smart QR-Based Road Transparency System offers a complete set of
             solutions to make roads more accountable, safer, and easier to
             maintain.
