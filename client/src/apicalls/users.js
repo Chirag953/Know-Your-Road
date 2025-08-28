@@ -48,3 +48,25 @@ try{
 }
 
 };
+
+//add comment
+ 
+
+export const AddComment=async(payload)=>{
+    try {
+        const response= await axiosInstance.post("/api/users/add-Testimonial",payload)
+        return response.data;
+    } catch (error) {
+        return error.response.data;
+    }
+}
+
+//get all comments
+export const GetAllcomment=async(id)=>{
+     try {
+        const response= await axiosInstance.get(`/api/users/get-all-Testimonial/:id${id}`)
+        return response.data;
+    } catch (error) {
+        return error.response.data;
+    }
+}
